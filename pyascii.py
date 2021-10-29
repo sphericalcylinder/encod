@@ -5,6 +5,8 @@ def asciiencode(toencode):
     for c in toencode:
         a = ord(c)
         done.append(a)
+    done = " ".join([str(elm) for elm in done])
+    done = done.replace(',', '')
     return done
 
 def asciidecode(todecode):
@@ -12,6 +14,8 @@ def asciidecode(todecode):
         todecode = todecode.split()
         for c in todecode:
             done.append(chr(int(c)))
+        done = " ".join([str(elm) for elm in done])
+        done = done.rstrip()
         return done
 
 if choice.lower() == 'encode':
