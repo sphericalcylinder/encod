@@ -7,6 +7,8 @@ def binencode(toencode):
         binary = bin(i)
         binary = binary.replace('0b', '')
         done.append(binary)
+    done = " ".join([str(elm) for elm in done])
+    done = done.replace(',', '')
     return done
 
 def bindecode(todecode):
