@@ -1,7 +1,7 @@
 import argparse
 import base64
 
-import pdb; pdb.set_trace()
+#import pdb; pdb.set_trace()
 
 parser = argparse.ArgumentParser(description='Encode and decode base64.')
 parser.add_argument('-e', dest='accumulate',
