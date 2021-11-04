@@ -4,9 +4,12 @@ import base64
 #import pdb; pdb.set_trace()
 
 parser = argparse.ArgumentParser(description='Encode and decode base64.')
-parser.add_argument('-e', dest='accumulate',
+parser.add_argument('-e',
                     help='encode provided text into base64.')
-parser.parse_args()
+args = parser.parse_args()
+
+if args == '-e' :
+    print(args)
 
 
 choice = input("Would you like to encode or decode? ")
