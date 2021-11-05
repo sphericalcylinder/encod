@@ -22,7 +22,7 @@ def noArgs():
     choice = input("Would you like to encode or decode? ")
 
 if len(sys.argv) <= 2:
-    pass
+    noArgs()
 
 if sys.argv[1] == '-e':
     print(asciiencode(sys.argv[2]))
