@@ -21,26 +21,35 @@ def asciidecode(todecode):
 def noArgs():
     choice = input("Would you like to encode or decode? ")
 
-if len(sys.argv) <= 2:
+    if choice.lower() == 'encode':
+        en = input("What would you like to encode? ")
+        print(asciiencode(en))
+        sys.exit(0)
+
+    elif choice.lower() == 'decode':
+        de = input("What would you like to decode? ")
+        print(asciidecode(de))
+        sys.exit(0)
+
+    else:
+        print("I can't do that")
+        sys.exit(0)
+
+print(sys.argv)
+
+if len(sys.argv) < 2:
     noArgs()
 
-if sys.argv[1] == '-e':
+if sys.argv[1] == '-e' or sys.argv[1] == '--encode':
     print(asciiencode(sys.argv[2]))
 
-elif sys.argv[1] == '-d':
+elif sys.argv[1] == '-d' or sys.argv[1] == '--decode':
     print(asciidecode(sys.argv[2]))
 
 elif sys.argv[1] == '-h' or sys.argv[1] == '--help':
     print("""Use:
-    encode(-e) or decode(-d) ASCII.""")
-
-if choice.lower() == 'encode':
-    en = input("What would you like to encode? ")
-    print(asciiencode(en))
-
-elif choice.lower() == 'decode':
-    de = input("What would you like to decode? ")
-    print(asciidecode(de))
+    encode(-e, --encode) or decode(-d, --decode) ASCII.""")
 
 else:
-    print("I can't do that")
+    print("Unknown first argument: %s" % sys.argv[1])
+    print("Accepted arguments: -e, -d, -h or --help")

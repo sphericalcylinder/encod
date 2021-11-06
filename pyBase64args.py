@@ -17,18 +17,21 @@ def noArgs():
     if choice.lower().startswith == 'e':
         en = input("What would you like to encode? ")
         print(base64encode(en))
+        sys.exit(0)
 
     elif choice.lower().startswith == 'd':
         de = input("What would you like to decode? Include the padding. ")
         print(base64decode(de))
+        sys.exit(0)
 
     else:
         print("I can't do that")
+        sys.exit(0)
 
 
 print(sys.argv)
 
-if len(sys.argv) <= 2:
+if len(sys.argv) < 2:
     noArgs()
 
 if sys.argv[1] == '-e':

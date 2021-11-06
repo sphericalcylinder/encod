@@ -1,6 +1,6 @@
 import sys
 
-#choice = input("Would you like to encode or decode? ")
+err_msg = "You must provide an input after the argument"
 
 def binencode(toencode):
     done = []
@@ -23,32 +23,42 @@ def bindecode(todecode):
     return ascii_str
 
 def noArgs():
-    pass
+    choice = input("Would you like to encode or decode? ")
 
-if len(sys.argv) <= 2:
+    if choice.lower() == "encode":
+        en = input("Wthat would you like to encode? ")
+        print(binencode(en))
+        sys.exit(0)
+
+    elif choice.lower() == "decode":
+        de = input("What would you like to decode? ")
+        print(bindecode(de))
+        sys.exit(0)
+
+    else:
+        print("I can\'t do that")
+        sys.exit(0)
+
+
+if len(sys.argv) < 2:
     noArgs()
 
 if sys.argv[1] == '-e' or sys.argv[1] == '--encode':
-    print(binencode(sys.argv[2]))
+    try:
+        print(binencode(sys.argv[2]))
+    except:
+        print(err_msg)
 
 elif sys.argv[1] == '-d' or sys.argv[1] == '--decode':
-    print(bindecode(sys.argv[2]))
+    try:
+        print(bindecode(sys.argv[2]))
+    except:
+        print(err_msg)
 
 elif sys.argv[1] == '-h' or sys.argv[1] == '--help':
     print("""Use:
-    encode(-e or --encode) or decode(-d, --decode) binary.""")
+    encode(-e, --encode) or decode(-d, --decode) binary.""")
 
 else:
     print("Unknown first argument: %s" % sys.argv[1])
     print("-h or --help for more help")
-
-if choice.lower() == "encode":
-    en = input("Wthat would you like to encode? ")
-    print(binencode(en))
-
-elif choice.lower() == "decode":
-    de = input("What would you like to decode? ")
-    print(bindecode(de))
-
-else:
-    print("I can\'t do that")
