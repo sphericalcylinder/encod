@@ -1,4 +1,8 @@
 import sys
+from signature import Signature
+
+signature = Signature()
+signature.sign()
 
 err_msg = "You must provide an input after the argument"
 

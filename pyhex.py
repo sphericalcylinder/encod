@@ -1,6 +1,10 @@
+import sys
+from signature import Signature
 import binascii as basc
 
-choice = input("Would you like to encode or decode? ")
+signature = Signature()
+signature.sign()
+
 
 def hexencode(toencode):
     done = []
@@ -14,13 +18,37 @@ def hexdecode(todecode):
     done.append(decoded)
     return done
 
-if choice.lower() == "encode":
-    en = input("What would you like to encode? ")
-    print(hexencode(en))
+def noArgs():
+    choice = input("Would you like to encode or decode? ")
 
-elif choice.lower() == "decode":
-    de = input("What would you like to decode? ")
-    print(hexdecode(de))
+    if choice.lower() == "encode":
+        en = input("What would you like to encode? ")
+        print(hexencode(en))
+        sys.exit(0)
+
+    elif choice.lower() == "decode":
+        de = input("What would you like to decode? ")
+        print(hexdecode(de))
+        sys.exit(0)
+
+    else:
+        print("I can't do that")
+        sys.exit(0)
+
+if len(sys.argv) < 2:
+    noArgs()
+
+if sys.argv[1] == '-e' or sys.argv[1] == '--encode':
+    print(hexencode(sys.argv[2]))
+
+elif sys.argv[1] == '-d' or sys.argv[1] == '--encode':
+    print(hexdecode(sys.argv[2]))
+
+elif sys.argv[1] == '-h' or sys.argv[1] == '--help':
+    print("""Use:
+    encode(-e, --encode) or decode(-d, --decode) hexadecimal.""")
 
 else:
-    print("I can't do that")
+    print("Unknown first argument: %s" % sys.argv[1])
+    print("-h or --help for more help")
+
