@@ -1,4 +1,7 @@
 import sys
+from signature import Signature
+signature = Signature()
+signature.sign()
 
 def asciiencode(toencode):
     done = []
@@ -35,7 +38,6 @@ def noArgs():
         print("I can't do that")
         sys.exit(0)
 
-print(sys.argv)
 
 if len(sys.argv) < 2:
     noArgs()
