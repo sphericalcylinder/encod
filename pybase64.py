@@ -1,5 +1,9 @@
 import sys
 import base64
+from signature import Signature
+
+signature = Signature()
+signature.sign()
 
 
 def base64encode(toencode):
