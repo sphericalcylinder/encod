@@ -1,7 +1,10 @@
 import sys
 from signature import Signature
+
 signature = Signature()
 signature.sign()
+
+err_msg = "You must provide an input after the argument"
 
 def asciiencode(toencode):
     done = []
@@ -43,10 +46,16 @@ if len(sys.argv) < 2:
     noArgs()
 
 if sys.argv[1] == '-e' or sys.argv[1] == '--encode':
-    print(asciiencode(sys.argv[2]))
+    try:
+        print(asciiencode(sys.argv[2]))
+    except:
+        print(err_msg)
 
 elif sys.argv[1] == '-d' or sys.argv[1] == '--decode':
-    print(asciidecode(sys.argv[2]))
+    try:
+        print(asciidecode(sys.argv[2]))
+    except:
+        print(err_msg)
 
 elif sys.argv[1] == '-h' or sys.argv[1] == '--help':
     print("""Use:
@@ -54,4 +63,4 @@ elif sys.argv[1] == '-h' or sys.argv[1] == '--help':
 
 else:
     print("Unknown first argument: %s" % sys.argv[1])
-    print("Accepted arguments: -e, -d, -h or --help")
+    print("-h or --help for more help")

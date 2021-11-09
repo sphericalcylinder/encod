@@ -5,6 +5,7 @@ from signature import Signature
 signature = Signature()
 signature.sign()
 
+err_msg = "You must provide an input after the argument"
 
 def base64encode(toencode):
     done = []
@@ -33,21 +34,25 @@ def noArgs():
         sys.exit(0)
 
 
-print(sys.argv)
-
 if len(sys.argv) < 2:
     noArgs()
 
-if sys.argv[1] == '-e':
-    print(base64encode(sys.argv[2]))
+if sys.argv[1] == '-e' or sys.argv[1] == '--encode':
+    try:
+        print(base64encode(sys.argv[2]))
+    except:
+        print(err_msg)
 
-elif sys.argv[1] == '-d':
-    print(base64decode(sys.argv[2]))
+elif sys.argv[1] == '-d' or sys.argv[1] == '--decode':
+    try:
+        print(base64decode(sys.argv[2]))
+    except:
+        print(err_msg)
 
 elif sys.argv[1] == '-h' or sys.argv[1] == '--help':
     print("""Use:
-    encode(-e), or decode(-d) base64.""")
+    encode(-e, --encode) or decode(-d, --decode) base64.""")
 
 else:
     print("Unknown first argument: %s" % sys.argv[1])
-    print("Accepted arguments: -e, -d, -h or --help")
+    print("-h or --help for more help")

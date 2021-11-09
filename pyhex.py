@@ -5,6 +5,8 @@ import binascii as basc
 signature = Signature()
 signature.sign()
 
+err_msg = "You must provide an input after the argument"
+
 
 def hexencode(toencode):
     done = []
@@ -39,10 +41,16 @@ if len(sys.argv) < 2:
     noArgs()
 
 if sys.argv[1] == '-e' or sys.argv[1] == '--encode':
-    print(hexencode(sys.argv[2]))
+    try:
+        print(hexencode(sys.argv[2]))
+    except:
+        print(err_msg)
 
 elif sys.argv[1] == '-d' or sys.argv[1] == '--encode':
-    print(hexdecode(sys.argv[2]))
+    try:
+        print(hexdecode(sys.argv[2]))
+    except:
+        print(err_msg)
 
 elif sys.argv[1] == '-h' or sys.argv[1] == '--help':
     print("""Use:
