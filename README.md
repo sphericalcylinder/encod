@@ -1,1 +1,1 @@
-gottem
+This  is an assortment of scripts intended to be used as a way to painlessly encode and decode text in 4 different formats. There are various ways as to go about this, and here are some examples: `python pyascii.py -e hello`, `python pybinary.py --encode hello`, `python pybase64.py` (and then respond to the prompt) These scripts were created by Jonah Posner https://github.com/mrspaghettiiscool.
