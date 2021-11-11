@@ -21,14 +21,14 @@ def hexdecode(todecode):
     return done
 
 def noArgs():
-    choice = input("Would you like to encode or decode? ")
+    choice = input("Would you like to encode or decode? ").lower()
 
-    if choice.lower() == "encode":
+    if choice.startswith("en"):
         en = input("What would you like to encode? ")
         print(hexencode(en))
         sys.exit(0)
 
-    elif choice.lower() == "decode":
+    elif choice.startswith("de"):
         de = input("What would you like to decode? ")
         print(hexdecode(de))
         sys.exit(0)
