@@ -53,7 +53,8 @@ if sys.argv[1] == '-e' or sys.argv[1] == '--encode':
 
 elif sys.argv[1] == '-d' or sys.argv[1] == '--decode':
     try:
-        print(asciidecode(sys.argv[2]))
+        for i in sys.argv[2:]:
+            print(asciidecode(i))
     except:
         print(err_msg)
 
