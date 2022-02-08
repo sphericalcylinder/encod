@@ -18,13 +18,14 @@ def base64decode(todecode):
     return done
 
 def noArgs():
-    choice = input("Would you like to encode or decode? ")
-    if choice.lower().startswith == 'e':
+    choice = input("Would you like to encode or decode? ").lower()
+
+    if choice.startswith("en"):
         en = input("What would you like to encode? ")
         print(base64encode(en))
         sys.exit(0)
 
-    elif choice.lower().startswith == 'd':
+    elif choice.startswith("de"):
         de = input("What would you like to decode? Include the padding. ")
         print(base64decode(de))
         sys.exit(0)

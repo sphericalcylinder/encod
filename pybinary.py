@@ -27,14 +27,22 @@ def bindecode(todecode):
     return ascii_str
 
 def noArgs():
-    choice = input("Would you like to encode or decode? ")
+    choice = input("Would you like to encode or decode? ").lower()
 
+<<<<<<< HEAD
     if choice.lower().startswith("en"):
+=======
+    if choice.startswith("en"):
+>>>>>>> 438987c29d5b5d2d9f854e14eb7a91706aa039b4
         en = input("Wthat would you like to encode? ")
         print(binencode(en))
         sys.exit(0)
 
+<<<<<<< HEAD
     elif choice.lower().startswith("de"):
+=======
+    elif choice.startswith("de"):
+>>>>>>> 438987c29d5b5d2d9f854e14eb7a91706aa039b4
         de = input("What would you like to decode? ")
         print(bindecode(de))
         sys.exit(0)

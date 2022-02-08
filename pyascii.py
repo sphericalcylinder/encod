@@ -25,14 +25,14 @@ def asciidecode(todecode):
         return done
 
 def noArgs():
-    choice = input("Would you like to encode or decode? ")
+    choice = input("Would you like to encode or decode? ").lower()
 
-    if choice.lower() == 'encode':
+    if choice.startswith("en"):
         en = input("What would you like to encode? ")
         print(asciiencode(en))
         sys.exit(0)
 
-    elif choice.lower() == 'decode':
+    elif choice.startswith("de"):
         de = input("What would you like to decode? ")
         print(asciidecode(de))
         sys.exit(0)
@@ -53,7 +53,8 @@ if sys.argv[1] == '-e' or sys.argv[1] == '--encode':
 
 elif sys.argv[1] == '-d' or sys.argv[1] == '--decode':
     try:
-        print(asciidecode(sys.argv[2]))
+        for i in sys.argv[2:]:
+            print(asciidecode(i))
     except:
         print(err_msg)
 
