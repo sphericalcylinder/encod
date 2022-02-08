@@ -29,12 +29,12 @@ def bindecode(todecode):
 def noArgs():
     choice = input("Would you like to encode or decode? ")
 
-    if choice.lower() == "encode":
+    if choice.lower().startswith("en"):
         en = input("Wthat would you like to encode? ")
         print(binencode(en))
         sys.exit(0)
 
-    elif choice.lower() == "decode":
+    elif choice.lower().startswith("de"):
         de = input("What would you like to decode? ")
         print(bindecode(de))
         sys.exit(0)
